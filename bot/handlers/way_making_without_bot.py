@@ -43,8 +43,8 @@ async def asking_for_email(message: types.Message) -> None:
 # Сохранение почты
 async def saving_email_addr(message: types.Message, state: FSMContext):
     user_email = message.text  # TODO ???
-    if not (user_email[len(user_email) - len('@edu.hse.ru'):] == '@edu.hse.ru'
-            and user_email.count('@') == 1 and user_email != '@edu.hse.ru'):
+    if not (user_email[len(user_email) - len('hse.ru'):] == 'hse.ru'
+            and user_email.count('@') == 1 and user_email != 'hse.ru'):
         await asking_for_email(message)
         return
     await state.update_data(email=user_email)
